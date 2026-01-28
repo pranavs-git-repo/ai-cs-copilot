@@ -125,9 +125,7 @@ This is intentionally left as a **future extension**, not a default.
 
 ---
 
-## ✂️ Shorter Version (If You Want It Tighter)
-
-If you prefer something more concise, use this instead:
+## Shorter Version 
 
 > **RAG Design Note**
 > This project implements RAG both from scratch and using LangChain retrievers.
@@ -136,13 +134,3 @@ If you prefer something more concise, use this instead:
 > Tool-based agents are considered a future extension once retrieval and grounding are fully trusted.
 
 ---
-
-## Next (Optional, High Value)
-
-If you want, we can:
-
-* Add a **small architecture diagram (ASCII or Mermaid)** to the README
-* Add a **“Future Enhancements”** section (agents, metrics, role-based views)
-* Tighten this language for **resume / LinkedIn reuse**
-
-Just tell me what you’d like to do next.
