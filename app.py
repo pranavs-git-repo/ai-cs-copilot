@@ -2,6 +2,7 @@ import json
 import streamlit as st
 
 from cs_copilot import analyze_customer_context
+from rendering import json_to_markdown
 
 # From-scratch RAG
 from build_index import build_in_memory_index
@@ -9,6 +10,8 @@ from rag_pipeline import retrieve_context as retrieve_context_scratch
 
 # LangChain RAG
 from lc_retrieve import build_context_block as retrieve_context_lc
+
+from customers import list_customer_ids
 
 st.set_page_config(page_title="AI CS Copilot (RAG)", layout="wide")
 
@@ -23,6 +26,9 @@ PRESET_QUESTIONS = {
 
 with st.sidebar:
     st.header("Controls")
+    # NEW: Customer selection
+    customer_ids = list_customer_ids()
+    customer_id = st.selectbox("Customer", customer_ids)
     rag_backend = st.radio("RAG backend", ["From-scratch", "LangChain"], index=0)
     top_k = st.slider("Top-K retrieved chunks", min_value=3, max_value=10, value=6, step=1)
     preset = st.selectbox("Preset question", list(PRESET_QUESTIONS.keys()))
@@ -36,14 +42,24 @@ if run:
     # 1) Retrieve context
     with st.spinner("Retrieving relevant context..."):
         if rag_backend == "From-scratch":
-            index = build_in_memory_index()  # cached on disk now
-            context = retrieve_context_scratch(query=question, index=index, top_k=top_k)
+            index = build_in_memory_index()
+            context = retrieve_context_scratch(
+                query=question,
+                index=index,
+                top_k=top_k,
+                customer_id=customer_id,   # NEW
+            )
         else:
-            context = retrieve_context_lc(query=question, top_k=top_k)
+            context = retrieve_context_lc(
+                query=question,
+                top_k=top_k,
+                customer_id=customer_id,   # NEW
+            )
 
     # 2) Generate structured output
     with st.spinner("Generating CS insights..."):
         result = analyze_customer_context(context=context, question=question)
+        md = json_to_markdown(result, title=f"{customer_id} — {preset}")
 
     # 3) Display
     col1, col2 = st.columns(2)
@@ -51,6 +67,16 @@ if run:
     with col1:
         st.subheader("Structured Output (JSON)")
         st.json(result)
+        st.subheader("Export (Markdown)")
+        st.code(md, language="markdown")
+
+        st.download_button(
+            label="Download Markdown",
+            data=md,
+            file_name=f"{customer_id}_{preset.replace(' ', '_').lower()}.md",
+            mime="text/markdown",
+        )
+
         st.subheader("Raw JSON")
         st.code(json.dumps(result, indent=2), language="json")
 
