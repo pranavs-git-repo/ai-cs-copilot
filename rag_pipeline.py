@@ -3,7 +3,6 @@ from typing import Any, Dict, List
 
 from retrieval import retrieve_top_k
 
-from __future__ import annotations
 from typing import Any, Dict, List
 from retrieval import retrieve_top_k
 
