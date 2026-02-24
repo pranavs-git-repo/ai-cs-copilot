@@ -2,7 +2,8 @@ import json
 import streamlit as st
 
 from cs_copilot import analyze_customer_context
-from rendering import json_to_markdown
+#from rendering import json_to_markdown
+from rendering import json_to_markdown, to_qbr_markdown, to_followup_email
 
 # From-scratch RAG
 from build_index import build_in_memory_index
@@ -33,6 +34,7 @@ with st.sidebar:
     top_k = st.slider("Top-K retrieved chunks", min_value=3, max_value=10, value=6, step=1)
     preset = st.selectbox("Preset question", list(PRESET_QUESTIONS.keys()))
     use_preset = st.checkbox("Use preset", value=True)
+    export_format = st.selectbox("Export format", ["Generic", "QBR", "Follow-up Email"])
 
 question = PRESET_QUESTIONS[preset] if use_preset else st.text_area("Enter your question", height=120)
 
@@ -59,7 +61,13 @@ if run:
     # 2) Generate structured output
     with st.spinner("Generating CS insights..."):
         result = analyze_customer_context(context=context, question=question)
-        md = json_to_markdown(result, title=f"{customer_id} — {preset}")
+#        md = json_to_markdown(result, title=f"{customer_id} — {preset}")
+        if export_format == "QBR":
+            md = to_qbr_markdown(result, customer_id=customer_id)
+        elif export_format == "Follow-up Email":
+            md = to_followup_email(result, customer_id=customer_id)
+        else:
+            md = json_to_markdown(result, title=f"{customer_id} — {preset}")
 
     # 3) Display
     col1, col2 = st.columns(2)
@@ -69,11 +77,11 @@ if run:
         st.json(result)
         st.subheader("Export (Markdown)")
         st.code(md, language="markdown")
-
+        safe_name = export_format.replace(" ", "_").lower()
         st.download_button(
             label="Download Markdown",
             data=md,
-            file_name=f"{customer_id}_{preset.replace(' ', '_').lower()}.md",
+            file_name=f"{customer_id}_{safe_name}.md",
             mime="text/markdown",
         )
 

@@ -14,6 +14,7 @@ def build_context_block(results: List[Dict[str, Any]]) -> str:
         blocks.append(f"{citation}\n{r['text']}".strip())
     return "\n\n---\n\n".join(blocks)
 
-def retrieve_context(query: str, index: List[Dict[str, Any]], top_k: int = 5) -> str:
-    results = retrieve_top_k(query=query, index=index, top_k=top_k)
+def retrieve_context(query: str, index: List[Dict[str, Any]], top_k: int = 5, customer_id: str | None = None) -> str:
+    results = retrieve_top_k(query=query, index=index, top_k=top_k, customer_id=customer_id)
     return build_context_block(results)
+
