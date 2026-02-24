@@ -8,6 +8,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 
 from customers import filename_belongs_to_customer
+from typing import Dict, Any, List, Tuple
 
 PERSIST_DIR = "lc_chroma"
 COLLECTION_NAME = "cs_copilot_docs"
@@ -60,3 +61,12 @@ def build_context_block(query: str, top_k: int = 6, customer_id: Optional[str] =
     for citation, text, _ in results:
         blocks.append(f"{citation}\n{text}".strip())
     return "\n\n---\n\n".join(blocks)
+
+
+
+def lc_results_as_dicts(query: str, top_k: int = 6, customer_id: str | None = None) -> List[Dict[str, Any]]:
+    hits = retrieve_top_k(query, top_k=top_k, customer_id=customer_id)
+    out = []
+    for citation, text, score in hits:
+        out.append({"score": round(score, 4), "citation": citation, "text": text})
+    return out

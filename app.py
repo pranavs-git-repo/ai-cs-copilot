@@ -13,7 +13,8 @@ from rag_pipeline import retrieve_context as retrieve_context_scratch
 from lc_retrieve import build_context_block as retrieve_context_lc
 
 from customers import list_customer_ids
-
+from rag_pipeline import retrieve_results  # new
+from lc_retrieve import lc_results_as_dicts  # new
 st.set_page_config(page_title="AI CS Copilot (RAG)", layout="wide")
 
 st.title("AI Customer Success Copilot (RAG)")
@@ -51,11 +52,22 @@ if run:
                 top_k=top_k,
                 customer_id=customer_id,   # NEW
             )
+            hits = retrieve_results(
+                query=question,
+                index=index,
+                top_k=top_k,
+                customer_id=customer_id
+            )
         else:
             context = retrieve_context_lc(
                 query=question,
                 top_k=top_k,
                 customer_id=customer_id,   # NEW
+            )
+            hits = lc_results_as_dicts(
+                query=question,
+                top_k=top_k,
+                customer_id=customer_id
             )
 
     # 2) Generate structured output
@@ -91,3 +103,16 @@ if run:
     with col2:
         st.subheader("Retrieved Context (with citations)")
         st.text_area("Context", value=context, height=650)
+        st.subheader("Evidence (Top retrieved chunks)")
+
+        for i, h in enumerate(hits, start=1):
+            if rag_backend == "From-scratch":
+                title = f"{i}. score={h['score']} — {h['chunk_id']} ({h['source_file']})"
+                body = h["text"]
+            else:
+                title = f"{i}. score={h['score']} — {h['citation']}"
+                body = h["text"]
+
+            with st.expander(title):
+                st.write(body)
+
