@@ -1,13 +1,13 @@
-import os
-from openai import OpenAI
-from dotenv import load_dotenv
-load_dotenv()
+from ai_client import get_client
+from cs_copilot import analyze_customer_notes
+from sample_data import SAMPLE_CUSTOMER_NOTES
+import json
 
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+def main():
+    result = analyze_customer_notes(SAMPLE_CUSTOMER_NOTES)
+    print("\n=== CS COPILOT STRUCTURED OUTPUT ===\n")
+    print(json.dumps(result, indent=2))
+    print(result)
 
-resp = client.responses.create(
-    model="gpt-4.1-mini",
-    input="In 3 bullet points, explain how AI can help Customer Success teams in cybersecurity."
-)
-
-print(resp.output_text)
+if __name__ == "__main__":
+    main()
