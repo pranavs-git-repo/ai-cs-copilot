@@ -1,0 +1,30 @@
+Customer has raised concerns about slow API response times during peak hours.
+Support tickets show 3 unresolved P2 issues in the last 60 days.
+Customer mentioned evaluating competitors during last QBR.
+
+
+Red Flags / Concerns:
+- Mike casually mentioned: "David had another call with Arista yesterday. I wasn't on it."
+- When asked about expansion decision timeline: "Still evaluating. Nothing decided yet."
+- Tone was cordial but guarded - not the warm relationship we had 6 months ago
+
+
+Positive Signs:
+- Jennifer mentioned restarting automation work: "If the API stays stable for 2 weeks, I'll resume our infrastructure-as-code project"
+- Mike shared network expansion diagram for Denver office - signal of potential commitment
+- Conversation felt more collaborative, less defensive
+
+Concerns:
+- When Sarah asked about renewal discussions, Mike deflected: "That's David's territory. I just keep the network running."
+- No mention of competitive evaluations, but Sarah suspects they're still ongoing
+
+Relationship Temperature Check:
+- Mike's tone noticeably warmer
+- Shared: "Look, I'm advocating internally for staying with NexCore. The tech is good, and you're finally giving us the support we needed. But David and the CFO need convincing. The December outage left a mark."
+- Mike suggested: "If Marcus or someone executive-level could meet with our CFO to address his concerns, that might help."
+
+
+Remaining Risks:
+- Need to maintain this level of support through renewal close
+- Can't have ANY technical issues in next 30 days
+- Denver deployment must be flawless - it's our proof point

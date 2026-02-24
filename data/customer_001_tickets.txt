@@ -1,0 +1,98 @@
+CUSTOMER SUPPORT TICKETS - NEXCORE NETWORKS
+Account: TechVantage Solutions (Enterprise Tier)
+Account Manager: Sarah Chen
+Period: December 15, 2024 - January 10, 2025
+
+==========================================================
+
+TICKET #8472 | PRIORITY: HIGH | STATUS: RESOLVED
+Date: Dec 15, 2024
+Subject: Intermittent packet loss on NC-5000 switches in datacenter
+Contact: Mike Rodriguez, Network Engineer
+
+Issue: Customer reporting 2-5% packet loss during peak traffic hours (2pm-6pm EST) on three NC-5000 core switches deployed in their primary datacenter. Affecting critical application performance for their e-commerce platform.
+
+Resolution: After 3 days of diagnostics, identified firmware bug in version 4.2.1 causing buffer overflow under high load. Upgraded to firmware 4.2.3 hotfix. Customer validated resolution after 48hr monitoring period.
+
+Customer Sentiment: Initially frustrated with response time. Satisfied with technical resolution but concerned about QA process.
+
+==========================================================
+
+TICKET #8891 | PRIORITY: MEDIUM | STATUS: OPEN
+Date: Dec 22, 2024
+Subject: SDN controller API timeout errors
+Contact: Jennifer Park, DevOps Lead
+
+Issue: Customer's automation scripts experiencing timeout errors when making API calls to NexCore SDN Controller. Errors occur randomly 15-20% of the time when provisioning new VLANs programmatically. Blocking their CI/CD pipeline automation.
+
+Current Status: Engineering team investigating. Suspect issue related to rate limiting in API gateway. Customer provided API logs and traffic patterns. No ETA provided yet.
+
+Customer Sentiment: Growing impatient. This is blocking their infrastructure-as-code initiative that was a key selling point during purchase.
+
+==========================================================
+
+TICKET #8923 | PRIORITY: CRITICAL | STATUS: ESCALATED
+Date: Dec 28, 2024
+Subject: Complete network outage - campus switches unresponsive
+Contact: Mike Rodriguez, Network Engineer (emergency call)
+
+Issue: All 47 NC-2500 access switches across customer's campus went offline simultaneously at 3:47am. Switches not responding to management traffic. Complete loss of network connectivity for 2,000+ employees.
+
+Resolution: Emergency on-site dispatch. Root cause: Power supply firmware incompatibility with building's UPS system caused cascading failure during routine UPS maintenance. Required physical reboot of all switches. Network restored after 6 hours.
+
+Customer Sentiment: Extremely upset. CFO involved. Demanding RCA (root cause analysis) and discussing penalty clauses in service agreement. Questioning reliability of NexCore hardware.
+
+==========================================================
+
+TICKET #9103 | PRIORITY: LOW | STATUS: RESOLVED
+Date: Jan 3, 2025
+Subject: Request for additional training on network analytics dashboard
+Contact: Jennifer Park, DevOps Lead
+
+Issue: Customer's new team members need training on the NexCore Analytics Platform. Requesting virtual training session for 5 engineers.
+
+Resolution: Scheduled 2-hour training session for Jan 12. Provided access to online training portal and documentation links.
+
+Customer Sentiment: Positive. Appreciative of support resources.
+
+==========================================================
+
+TICKET #9287 | PRIORITY: MEDIUM | STATUS: OPEN
+Date: Jan 6, 2025
+Subject: Performance degradation after firmware update
+Contact: Mike Rodriguez, Network Engineer
+
+Issue: After applying recommended security firmware update (4.3.1) to NC-5000 switches, customer experiencing 30% higher CPU utilization and slower configuration changes. Considering rolling back firmware.
+
+Current Status: Tier 2 support analyzing performance metrics. Engineering aware of issue - appears to be related to enhanced security scanning features in new firmware. Investigating optimization options.
+
+Customer Sentiment: Frustrated. Feeling caught between security requirements and performance needs. Third significant issue in 30 days.
+
+==========================================================
+
+TICKET #9301 | PRIORITY: MEDIUM | STATUS: OPEN  
+Date: Jan 8, 2025
+Subject: License renewal pricing inquiry + competitive evaluation
+Contact: David Kim, IT Director (new escalation point)
+
+Issue: Customer's enterprise license up for renewal in 60 days. Requesting pricing proposal. Also mentioned they are "evaluating alternatives" including Arista and Cisco due to recent reliability concerns. Specifically asked about migration path if they decide to switch vendors.
+
+Current Status: Forwarded to sales team and account manager. Customer Success intervention needed.
+
+Customer Sentiment: AT RISK. Clear churn signals. Using renewal negotiation as leverage due to technical issues.
+
+==========================================================
+
+ACCOUNT HEALTH SUMMARY:
+- 6 tickets in 4 weeks (above average for this customer)
+- 1 critical outage causing business impact
+- Multiple unresolved issues creating cumulative frustration  
+- Key stakeholder (IT Director) now involved and evaluating competitors
+- Renewal deadline approaching (60 days)
+- Customer was previously a reference account and advocate
+
+RECOMMENDED ACTIONS:
+- Immediate executive escalation and customer call
+- Fast-track resolution of open tickets #8891 and #9287
+- Consider service credits or license concessions for goodwill
+- Schedule QBR (Quarterly Business Review) to rebuild confidence

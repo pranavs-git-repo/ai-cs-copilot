@@ -1,0 +1,188 @@
+QUARTERLY BUSINESS REVIEW (QBR) NOTES
+Customer: TechVantage Solutions
+Date: January 15, 2025
+Quarter: Q4 2024 (Oct-Dec)
+Location: Virtual Meeting (Teams)
+
+==========================================================
+
+ATTENDEES:
+
+TechVantage Solutions:
+- David Kim, IT Director (decision maker)
+- Mike Rodriguez, Senior Network Engineer
+- Jennifer Park, DevOps Lead
+- Robert Chen, CFO (joined for 15 minutes)
+
+NexCore Networks:
+- Sarah Chen, Customer Success Manager (meeting lead)
+- Marcus Johnson, VP Customer Success
+- Tom Bradford, Solutions Architect
+- Lisa Wang, Support Engineering Manager
+
+==========================================================
+
+AGENDA ITEMS & DISCUSSION:
+
+1. BUSINESS OBJECTIVES REVIEW
+-------------------------------
+David Kim opened by reviewing TechVantage's goals for 2024:
+- ACHIEVED: Expanded from 2 to 4 office locations (Seattle, Austin added)
+- ACHIEVED: Migrated 60% of workloads to cloud (AWS)
+- IN PROGRESS: Infrastructure-as-code automation (currently 40% complete, target was 80%)
+- DELAYED: Zero-trust network architecture implementation (pushed to 2025)
+
+David noted: "We're behind on automation goals, and network reliability issues in Q4 haven't helped our timeline."
+
+Sarah acknowledged delays and tied to recent support tickets.
+
+
+2. NEXCORE DEPLOYMENT STATUS
+------------------------------
+Current Environment:
+- 47x NC-2500 access layer switches (campus)
+- 6x NC-5000 core switches (2 datacenters)
+- 2x NexCore SDN Controllers (HA pair)
+- Enterprise support contract (24/7)
+- 850 network ports in production
+
+Mike Rodriguez feedback:
+"Hardware performance is generally solid when it's working. The NC-5000s handle our traffic load well. But we've had more issues in the last 90 days than the previous 12 months combined."
+
+Specific concerns raised:
+- December campus-wide outage (6 hours downtime)
+- Ongoing firmware stability issues
+- SDN API reliability problems blocking automation
+- Feeling like "beta testers" for firmware releases
+
+
+3. SUPPORT EXPERIENCE & TICKET REVIEW
+---------------------------------------
+Lisa Wang walked through ticket metrics:
+- Q4 Tickets: 11 total (up from 4 in Q3)
+- Average resolution time: 4.2 days (up from 2.1 days in Q3)
+- 1 critical incident, 3 high priority, 7 medium/low
+- Customer satisfaction scores: 6.2/10 (down from 8.7/10 in Q3)
+
+David Kim's feedback:
+"The December outage was painful. Having our CFO breathe down my neck asking why we can't keep the network running was not a good experience. We lost productivity, we had employees unable to work, and I had to explain to leadership why our 'enterprise-grade' network went dark."
+
+Robert Chen (CFO) joined specifically to address this:
+"From a financial perspective, that outage cost us approximately $180,000 in lost productivity and delayed shipments. I need to understand what guarantees we have that this won't happen again, especially as we approach renewal discussions."
+
+Marcus Johnson responded:
+"We take full responsibility. The power supply firmware issue was not adequately tested. We've implemented additional QA protocols and are offering service credits for the downtime as outlined in your SLA."
+
+CFO response: "Service credits are appreciated but don't fully compensate for business impact. We need reliability, not discounts."
+
+
+4. PRODUCT ROADMAP & FEATURE REQUESTS
+---------------------------------------
+Jennifer Park discussed automation needs:
+- Need more stable SDN API (current timeout issues blocking adoption)
+- Request for Terraform provider improvements
+- Want better integration with ServiceNow for ticketing
+- Interested in AI-powered network analytics features announced at NexCore Summit
+
+Tom Bradford (Solutions Architect) presented:
+- SDN API stability fixes in Q1 2025 roadmap
+- New Terraform provider version releasing Feb 2025
+- ServiceNow integration in beta (can provide early access)
+- AI analytics generally available in March 2025
+
+Jennifer's response: "These features sound great, but I need the current API to work reliably before I can get excited about new capabilities. We're stuck at 40% automation because of these issues."
+
+
+5. COMPETITIVE LANDSCAPE DISCUSSION
+-------------------------------------
+David Kim was direct:
+"I need to be transparent with you. After the December outage, I was asked by leadership to evaluate alternatives. We've had preliminary conversations with both Arista and Cisco. Our renewal is coming up in 60 days, and I can't go to my executive team and recommend renewal without confidence that reliability will improve."
+
+"We chose NexCore 18 months ago because of your innovation in SDN and your competitive pricing. But if the network isn't reliable, those advantages don't matter. Arista's pitch is basically 'boring reliability' and right now, boring sounds pretty good."
+
+Marcus Johnson response:
+"David, I appreciate your honesty. We don't want to lose you as a customer, and more importantly, we know we've let you down in Q4. I'd like to propose a recovery plan that includes:
+1. Dedicated TAM (Technical Account Manager) for next 90 days
+2. Priority access to engineering for any issues
+3. Proactive firmware testing in our lab before you deploy
+4. Monthly check-ins between now and renewal
+5. Extended service credits beyond SLA requirements
+6. Discount on renewal if you commit to 3-year term"
+
+
+6. SUCCESS METRICS & KPIs REVIEW
+----------------------------------
+Sarah Chen presented network performance data:
+- Overall uptime: 99.4% (below 99.9% SLA due to December outage)
+- Average latency: 2.3ms (within spec)
+- Packet loss: <0.1% (improved after firmware fix)
+- Mean time to resolution: 4.2 days (above target of 2 days)
+
+Mike Rodriguez: "The metrics look okay on paper, but they don't capture the firefighting we've had to do. My team spent 40+ hours dealing with NexCore issues in December alone."
+
+
+7. TRAINING & ENABLEMENT
+--------------------------
+Jennifer Park: "On a positive note, the training resources have been helpful. The online portal is well-organized, and the scheduled training session next week is appreciated. If we stay with NexCore, we'd like quarterly training for our growing team."
+
+
+8. 2025 PLANNING & EXPANSION OPPORTUNITIES
+--------------------------------------------
+David Kim: "We have a new office opening in Denver in Q2 2025. That's 150 more network ports. We also need to refresh our aging wireless infrastructure - about 200 access points."
+
+"Here's the reality: If things stabilize and we see improvement over the next 60 days, NexCore is in the running for these projects. If we continue having issues, we'll likely go with a different vendor for new deployments and start planning migration for existing infrastructure."
+
+"The Denver office is a $400K opportunity for NexCore. The wireless refresh is another $300K. But I need confidence in reliability first."
+
+
+9. ACTION ITEMS & COMMITMENTS
+-------------------------------
+
+NexCore Commitments:
+[ ] Marcus to assign dedicated TAM by Jan 20 (OWNER: Marcus Johnson)
+[ ] Engineering to fast-track resolution of API timeout issues (OWNER: Lisa Wang, DUE: Jan 31)
+[ ] Tom to schedule firmware pre-testing lab setup (OWNER: Tom Bradford, DUE: Jan 25)
+[ ] Sarah to send RCA (Root Cause Analysis) for December outage to CFO (OWNER: Sarah Chen, DUE: Jan 17)
+[ ] Marcus to prepare renewal proposal with service credits and pricing (OWNER: Marcus Johnson, DUE: Feb 1)
+[ ] Monthly executive check-ins scheduled (starting Feb 1)
+
+TechVantage Commitments:
+[ ] Mike to provide API logs and traffic patterns for debugging (OWNER: Mike Rodriguez, DUE: Jan 20)
+[ ] Jennifer to test beta ServiceNow integration (OWNER: Jennifer Park, START: Feb 1)
+[ ] David to schedule internal stakeholder meeting to review NexCore recovery plan (OWNER: David Kim, DUE: Jan 30)
+
+
+10. CLOSING REMARKS
+--------------------
+
+David Kim: "I appreciate the attention this is getting from VP level. That gives me some confidence. But I need to see execution, not just promises. The next 60 days will determine our relationship going forward."
+
+Marcus Johnson: "Understood. We're committed to earning back your trust. You'll see immediate improvement in responsiveness and support quality. We'll be proactive rather than reactive."
+
+Mike Rodriguez: "I want this to work. When the network is stable, NexCore's technology is impressive. We just need consistent reliability."
+
+Sarah Chen: "Thank you all for the candid feedback. We'll be in touch within 48 hours with the detailed recovery plan and TAM assignment."
+
+
+==========================================================
+
+POST-MEETING INTERNAL NOTES (NexCore Team Only):
+
+ACCOUNT HEALTH: CRITICAL / RED
+Churn Risk: HIGH (80% probability)
+Renewal Amount at Risk: $180K/year + $700K expansion opportunity
+
+Immediate Priorities:
+1. Assign best available TAM (recommend Jake Morrison)
+2. Engineering must prioritize API fixes - this is blocking their automation
+3. CFO is influential - send executive-level RCA with detailed preventive measures
+4. Consider commercial concessions - customer has leverage
+5. Win back Mike Rodriguez - he's frustrated but still wants this to work
+6. Denver expansion is carrot - need to stabilize base before they'll expand
+
+Competitive Threat Level: SEVERE
+- Active conversations with Arista and Cisco
+- Decision timeline: 60 days
+- If we lose this account, it will impact our enterprise segment credibility
+
+Next Touch Point: Jan 17 (follow-up call with David Kim)
