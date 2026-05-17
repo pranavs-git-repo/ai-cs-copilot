@@ -42,8 +42,14 @@ This dual implementation is deliberate and educational.
 * Cosine similarity search in Python
 * Explicit top-K retrieval
 * Grounded generation with citations
+* Chunking: custom sliding-window chunker (`chunking.py`)
+* Embeddings: OpenAI embeddings (`text-embedding-3-small`)
+* Retrieval: cosine similarity over in-memory vectors (`retrieval.py`)
+* Index caching: stored locally to avoid re-embedding (`index_store.py`)
+
 
 **Why this was implemented:**
+* Built to deeply understand the mechanics of embeddings + similarity search + top-k retrieval before using abstractions.
 
 * To deeply understand how RAG works end-to-end
 * To maintain full transparency and explainability
@@ -67,8 +73,13 @@ This dual implementation is deliberate and educational.
 * OpenAI embeddings via `langchain-openai`
 * Chroma vector store with persistence
 * LangChain retriever for semantic search
+* Loader: LangChain `DirectoryLoader` + `TextLoader`
+* Chunking: `RecursiveCharacterTextSplitter`
+* Vector store: Chroma (persisted locally)
+* Retriever: `similarity_search_with_score`
 
 **Why this was added:**
+* Mirrors common industry patterns and accelerates iteration. Easier to extend with metadata filters, different vector stores, and tool integrations.
 
 * To demonstrate familiarity with industry-standard tooling
 * To show how the same architecture maps cleanly to LangChain
